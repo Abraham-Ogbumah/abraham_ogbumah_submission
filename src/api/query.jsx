@@ -39,9 +39,20 @@ export const PRODUCT_CATEGORY = gql`
 export const GET_ALL_CATEGORIES = gql`
   query getAllCategories
   {
+    category {
+      name
+    }
     categories {
-        name
-      }
+      name
+    }
   }
 `
-
+export const GET_CURRENCIES = gql`
+  query getCurrencies
+  {
+    currencies {
+      label
+      symbol
+    }
+  }
+`
