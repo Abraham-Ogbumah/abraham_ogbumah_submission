@@ -22,19 +22,18 @@ export const ALL_PRODUCTS = gql`
     }
 `
 
-export const PRODUCT_CATEGORY = gql`
-  query getProductsByCategory($title) {
-    category(input: {
-      title: $title
-    }) {
-      name
-      products {
-        id
-        name
-      }
-    }
-  }
-`
+// export const PRODUCT_CATEGORY = gql`
+//   query getProductsByCategory(title) {
+//     category(input: {title: "tech"})
+//     {
+//       name
+//       products {
+//         id
+//         name
+//       }
+//     }
+//   }
+// `
 
 export const GET_ALL_CATEGORIES = gql`
   query getAllCategories

@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-import { NavLink, withRouter, useNavigate } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { Query } from "@apollo/client/react/components"
 import style from "./Nav.module.css"
 import shoppingicon from "../shoppingicon.png";

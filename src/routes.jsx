@@ -1,5 +1,5 @@
 import React, { lazy, Component } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Router, Switch, Navigate, Redirect } from "react-router-dom";
 
 const Category = lazy(() => import('./Pages/Category'));
 const Cart = lazy(() => import('./Pages/Cart'));
@@ -14,12 +14,12 @@ export const route = {
 export default class ProductRoutes extends Component {
     render() {
         return (
-            <Routes>
-                <Route path={route.category} exact element={<Category />} />
-                <Route path={route.cart} exact element={<Cart />} />
-                <Route path={route.productdisplay} exact element={<ProductDisplay />} />
-                <Route path="/" element={<Navigate to="/category" />} />
-            </Routes>
+            <Router>
+                <Switch path={route.category} exact element={<Category />} />
+                <Switch path={route.cart} exact element={<Cart />} />
+                <Switch path={route.productdisplay} exact element={<ProductDisplay />} />
+                <Switch path="/" element={<Redirect to="/category" />} />
+            </Router>
         )
     }
 }
