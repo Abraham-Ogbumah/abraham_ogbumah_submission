@@ -27,7 +27,6 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={apolloClient}>
       <App />
-      {/* <ProductCategory /> */}
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
