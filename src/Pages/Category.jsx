@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Query } from "@apollo/client/react/components"
 
-import Card from '../Components/card/Card'
+import Card from '../Components/CardsItem/CardsItem'
 import { GET_ALL_CATEGORIES } from "../api"
 
 const createCard = (c) => {
