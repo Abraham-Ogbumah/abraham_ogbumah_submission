@@ -2,8 +2,8 @@ import React, { lazy, Component } from "react";
 import { Router, Switch, Navigate, Redirect } from "react-router-dom";
 
 const Category = lazy(() => import('./Pages/Category'));
-const Cart = lazy(() => import('./Pages/Cart'));
-const ProductDisplay = lazy(() => import('./Pages/ProductDisplay'));
+const Cart = lazy(() => import('./Pages/CartPage/CartPage.jsx'));
+const ProductDisplay = lazy(() => import('./Pages/ProductPage/ProductPage'));
 
 export const route = {
     category: "/category",
