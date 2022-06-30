@@ -1,10 +1,10 @@
-import { PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { Query } from "react-apollo";
 import parse from "html-react-parser";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addProduct } from "../../redux/product/product-actions";
-import s from "./ProductPage.module.css";
+import style from "./ProductPage.module.css";
 import { productRequest } from "../../services/gql-requests";
 import ProductAttributes from "../../Components/ProductAttributes/ProductAttributes";
 import ProductImages from "../../Components/ProductImages/ProductImages";
@@ -72,21 +72,21 @@ class ProductPage extends PureComponent {
 
           return (
             product && (
-              <div className={s.wrapper}>
+              <div className={style.wrapper}>
                 <ProductImages
                   product={product}
                   selectImage={selectImage}
                   onSelectImage={this.onSelectImage}
                 />
                 <div>
-                  <h3 className={s.title}>{product.name}</h3>
+                  <h3 className={style.title}>{product.name}</h3>
                   <ProductAttributes
                     product={product}
                     onAttributesClick={this.setActiveAttribute}
                   />
 
-                  <p className={s.attributesTitle}>PRICE:</p>
-                  <p className={s.price}>
+                  <p className={style.attributesTitle}>PRICE:</p>
+                  <p className={style.price}>
                     {product.prices.map(
                       (cur) =>
                         cur.currency === currency &&
@@ -97,23 +97,23 @@ class ProductPage extends PureComponent {
                     type="button"
                     onClick={this.onSubmitProduct}
                     disabled={!product.inStock && true}
-                    className={s.submitBtn}
+                    className={style.submitBtn}
                   >
                     {!product.inStock ? "OUT OF STOCK" : "ADD TO CART"}
                   </button>
                   {product.description &&
                     (!isShowMore && product.description.length > 300 ? (
-                      <div className={s.description}>
+                      <div className={style.description}>
                         {parse(product.description.slice(0, 300) + "...")}
                       </div>
                     ) : (
-                      <div className={s.description}>
+                      <div className={style.description}>
                         {parse(product.description)}
                       </div>
                     ))}
                   {product.description.length > 300 && (
                     <button
-                      className={s.showMoreBtn}
+                      className={style.showMoreBtn}
                       type="button"
                       onClick={this.onShowMore}
                     >
