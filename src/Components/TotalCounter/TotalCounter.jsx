@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { Query } from "react-apollo";
 import { connect } from "react-redux";
 import style from "./TotalCounter.module.css";
-import { pricesRequest } from "../../services/gql-requests";
+import { PRICE_REQUEST } from "../../api";
 
 
 class TotalCounter extends PureComponent {
@@ -26,7 +26,7 @@ class TotalCounter extends PureComponent {
   render() {
     const { products, currency } = this.props;
     return (
-      <Query query={pricesRequest()}>
+      <Query query={PRICE_REQUEST()}>
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error : </p>;

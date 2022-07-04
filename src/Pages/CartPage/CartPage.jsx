@@ -13,7 +13,7 @@ class CartPage extends PureComponent {
       <div className={style.wrapper}>
         <h2 className={style.pageTitle}>CART</h2>
         {products.length ? (
-          <ul className={s.list}>
+          <ul className={style.list}>
             {products.map((item) => {
               return (
                 <CartPageItem

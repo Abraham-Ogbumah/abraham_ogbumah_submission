@@ -3,13 +3,14 @@ import { Query } from "react-apollo";
 import style from "./CartPageItem.module.css";
 import Counter from "../../Components/Counter/Counter";
 import { Carousel } from "react-responsive-carousel";
+import { PRODUCT_ATTRIBUTES } from "../../api"
 
 export default class CartPageItem extends PureComponent {
     render() {
         const { item, currencies } = this.props;
         return (
             <li id={item.id} className={style.item}>
-                <Query query={}>
+                <Query query={PRODUCT_ATTRIBUTES}>
                     {({ loading, error, data }) => {
                         if (loading) return <p>Loading...</p>;
                         if (error) return <p>Error : </p>;
@@ -24,7 +25,7 @@ export default class CartPageItem extends PureComponent {
                                                 (curr) => 
                                                 curr.currency === currencies &&
                                                 `${curr.currency} ${
-                                                    math.round(curr.amount * item.value * 100) /100
+                                                    Math.round(curr.amount * item.value * 100) /100
                                                 }`
                                             )}
                                         </p>
@@ -34,7 +35,7 @@ export default class CartPageItem extends PureComponent {
                                                     <p
                                                         key={attr}
                                                         style={{backfroundColor: attr}}
-                                                        className {
+                                                        className={
                                                             attr.includes("#") ? style.coloredLabel : style.itemAttrs
                                                         }
                                                     >
@@ -54,7 +55,7 @@ export default class CartPageItem extends PureComponent {
                                             width={"141px"}
                                             centerMode={true}
                                             centerSlidePercentage={100}
-                                            emulateTouch={ture}
+                                            emulateTouch={true}
                                             swipeable={true}
                                             infiniteLoop={true}
                                             showStatus={false}

@@ -2,38 +2,84 @@ import { gql } from '@apollo/client';
 
 export const ALL_PRODUCTS = gql`
     query getAllProducts {
-        categories {
-            name
-            products {
-              id
+        category {
+          name
+          products {
+            id
+            attributes {
               name
-              inStock
-              category
-              gallery
-              prices {
-                amount
-                currency {
-                  label
-                  symbol
-                }
-              }
             }
+            name
+            inStock
+            gallery
+            prices {
+              currency {
+                label
+                symbol
+              }
+              amount
+            }
+          }
         }
     }
 `
 
-// export const PRODUCT_CATEGORY = gql`
-//   query getProductsByCategory(title) {
-//     category(input: {title: "tech"})
-//     {
-//       name
-//       products {
-//         id
-//         name
-//       }
-//     }
-//   }
-// `
+export const PRODUCT_CATEGORY = gql`
+  query getProductsByCategory() {
+    categories {
+      name
+      products {
+        id
+        attributes {
+          name
+        }
+        name
+        inStock
+        gallery
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+      }
+    }
+  }
+`
+
+export const PRODUCT_ATTRIBUTES = (itemName) => gql`
+  query getProductAttribute() {
+    product(id: "${itemName}") {            
+      name            
+      gallery
+      prices {
+        amount
+        currency {
+          label
+          symbol
+        }
+      }
+    }
+  }
+`
+export const PRICE_REQUEST = gql`
+  query getPriceRequest
+  {
+    category {
+      products {
+        id
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+      }
+    }
+  }
+`
 
 export const GET_ALL_CATEGORIES = gql`
   query getAllCategories
