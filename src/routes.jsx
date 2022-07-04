@@ -1,7 +1,7 @@
 import React, { lazy, Component } from "react";
 import { Router, Switch, Navigate, Redirect } from "react-router-dom";
 
-const Category = lazy(() => import('./Pages/Category'));
+const Category = lazy(() => import('./Pages/CategoryPage/CategoryPage.jsx'));
 const Cart = lazy(() => import('./Pages/CartPage/CartPage.jsx'));
 const ProductDisplay = lazy(() => import('./Pages/ProductPage/ProductPage'));
 

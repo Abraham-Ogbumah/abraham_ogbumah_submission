@@ -81,6 +81,33 @@ export const PRICE_REQUEST = gql`
   }
 `
 
+export const PRODUCT_REQUEST = (productId) => gql`
+  query getProductRequest {
+    product(id: "${productId}") {
+      name
+      inStock
+      gallery
+      description
+      category
+      attributes {       
+        name
+        items {
+          id
+          value
+          displayValue
+        }
+      }
+      prices {
+        amount
+        currency {
+            label
+        }
+      }
+      brand
+    }
+  }
+` 
+
 export const GET_ALL_CATEGORIES = gql`
   query getAllCategories
   {

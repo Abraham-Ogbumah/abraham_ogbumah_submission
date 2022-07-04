@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addProduct } from "../../redux/product/product-actions";
 import style from "./ProductPage.module.css";
-import { productRequest } from "../../services/gql-requests";
+import { PRODUCT_REQUEST } from "../../api";
 import ProductAttributes from "../../Components/ProductAttributes/ProductAttributes";
 import ProductImages from "../../Components/ProductImages/ProductImages";
 
@@ -64,7 +64,7 @@ class ProductPage extends PureComponent {
     const { productId, selectImage, isShowMore } = this.state;
     const { currency } = this.props;
     return (
-      <Query query={productRequest(productId)}>
+      <Query query={PRODUCT_REQUEST(productId)}>
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error : </p>;

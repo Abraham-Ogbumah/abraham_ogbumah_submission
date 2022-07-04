@@ -4,7 +4,7 @@ import style from "./CardsItem.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { connect } from "react-redux";
 import { changeCurrency } from "../../redux/product/currencies-action";
-import { addProduct } from "../..redux/product/product-actions";
+import { addProduct } from "../../redux/product/product-actions";
 import CardButton from "../CardButton/CardButton";
 
 class CardsItem extends PureComponent {
