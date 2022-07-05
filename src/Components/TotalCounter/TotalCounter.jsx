@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Query } from "react-apollo";
+import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
 import style from "./TotalCounter.module.css";
 import { PRICE_REQUEST } from "../../api";

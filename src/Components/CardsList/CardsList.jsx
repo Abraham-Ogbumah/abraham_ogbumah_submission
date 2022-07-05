@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Query } from "react-apollo";
+import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { addProduct } from "../../redux/product/product-actions";

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Query } from "react-apollo";
+import { Query } from "@apollo/client/react/components";
 import style from "./CartPageItem.module.css";
 import Counter from "../../Components/Counter/Counter";
 import { Carousel } from "react-responsive-carousel";
