@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
-import { Query } from "react-apollo";
+import { Query } from "@apollo/client/react/components";
 import { connect } from "react-redux";
 import { changeCurrency } from "../../redux/product/currencies-action";
 import s from "./NavCurrencyBtn.module.css";
+import { GET_CURRENCIES } from "../../api"
 
 class NavCurrencyBtn extends PureComponent {
   state = {
@@ -24,7 +25,7 @@ class NavCurrencyBtn extends PureComponent {
   render() {
     const { showModal } = this.state;
     return (
-      <Query query={()}>
+      <Query query={GET_CURRENCIES()}>
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error : </p>;

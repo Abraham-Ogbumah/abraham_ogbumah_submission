@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import Counter from "..Counter/Counter"
+import Counter from "../Counter/Counter"
 import style from "./NavCartItem.module.css"
 
 export default class NavCartItem extends PureComponent {

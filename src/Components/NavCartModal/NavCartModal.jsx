@@ -1,12 +1,12 @@
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
 import { connect } from "react-redux";
-import { Query } from "react-apollo";
+import { Query } from "@apollo/client/react/components";
 import { v4 as uuidv4 } from "uuid";
 import style from "./NavCartModal.module.css";
 import ModalButtons from "../ModalButtons/ModalButtons";
 import TotalCounter from "../TotalCounter/TotalCounter";
-import { productAttributesRequest } from "../../services/gql-requests";
+import { PRODUCT_ATTRIBUTE_REQUEST } from "../../api";
 import NavCartItem from "../NavCartItem/NavCartItem";
 
 const modalRoot = document.querySelector("#modal-root");
@@ -44,7 +44,7 @@ class NavCartModal extends PureComponent {
           </p>
           {products.map((item) => {
             return (
-              <Query key={uuidv4()} query={productAttributesRequest(item.name)}>
+              <Query key={uuidv4()} query={PRODUCT_ATTRIBUTE_REQUEST(item.name)}>
                 {({ loading, error, data }) => {
                   if (loading) return <p>Loading...</p>;
                   if (error) return <p>Error : </p>;

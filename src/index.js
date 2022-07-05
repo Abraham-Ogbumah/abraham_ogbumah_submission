@@ -1,33 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloProvider } from '@apollo/client';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import { ApolloProvider } from '@apollo/client';
 
 import { apolloClient } from './middleware';
-// import { PRODUCT_CATEGORY } from "./api"
-import './index.css';
-import App from './App';
+// // import { PRODUCT_CATEGORY } from "./api"
+// import './index.css';
+// import App from './App';
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <ApolloProvider client={apolloClient}>
+//       <App />
+//     </ApolloProvider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
-// function ProductCategory() {
-//   const { loading, error, data } = useQuery(PRODUCT_CATEGORY);
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { ApolloProvider } from "@apollo/client";
+// import { ApolloClient } from "@apollo/client";
+import { Provider } from "react-redux";
+import "./index.css";
+import App from "./App";
+import { PersistGate } from "reduxjs-toolkit-persist/integration/react";
+import store, { persistor } from "./redux/store";
 
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>Error :(</p>;
-
-//   return data.rates.map(({ name, products }) => (
-//     <div key={name}>
-//       <p>
-//         {name}: {products}
-//       </p>
-//     </div>
-//   ));
-// }
+// const client = new ApolloClient({
+//   uri: "http://localhost:4000/",
+// });
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={apolloClient}>
-      <App />
-    </ApolloProvider>
+    <BrowserRouter>
+      <ApolloProvider client={apolloClient}>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
+        </Provider>
+      </ApolloProvider>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

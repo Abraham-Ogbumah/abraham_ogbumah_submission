@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const ALL_PRODUCTS = gql`
+export const ALL_PRODUCTS = () => gql`
     query getAllProducts {
         category {
           name
@@ -24,8 +24,8 @@ export const ALL_PRODUCTS = gql`
     }
 `
 
-export const PRODUCT_CATEGORY = gql`
-  query getProductsByCategory() {
+export const PRODUCT_CATEGORY = () => gql`
+  query getProductsByCategory {
     categories {
       name
       products {
@@ -63,7 +63,7 @@ export const PRODUCT_ATTRIBUTES = (itemName) => gql`
     }
   }
 `
-export const PRICE_REQUEST = gql`
+export const PRICE_REQUEST = () => gql`
   query getPriceRequest
   {
     category {
@@ -108,7 +108,7 @@ export const PRODUCT_REQUEST = (productId) => gql`
   }
 ` 
 
-export const GET_ALL_CATEGORIES = gql`
+export const GET_ALL_CATEGORIES = () =>  gql`
   query getAllCategories
   {
     category {
@@ -119,7 +119,24 @@ export const GET_ALL_CATEGORIES = gql`
     }
   }
 `
-export const GET_CURRENCIES = gql`
+
+export const PRODUCT_ATTRIBUTE_REQUEST = (itemName) => gql`
+  query getProductAttributeRequest {
+    product(id: "${itemName}") {            
+      name            
+      gallery
+      prices {
+        amount
+        currency {
+          label
+          symbol
+        }
+      }
+    }
+  }
+` 
+
+export const GET_CURRENCIES = () => gql`
   query getCurrencies
   {
     currencies {
