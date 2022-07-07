@@ -104,7 +104,7 @@ class Nav extends PureComponent {
           return (
             <div className={s.wrapper}>
               <ul className={s.list}>
-                <li className={s.item}>
+                {/* <li className={s.item}>
                   <NavLink
                     to={{
                       pathname: `/${category.name}`,
@@ -115,7 +115,7 @@ class Nav extends PureComponent {
                   >
                     {category.name.toUpperCase()}
                   </NavLink>
-                </li>
+                </li> */}
                 {categories.map((cat) => {
                   return (
                     <li key={cat.name} className={s.item}>

@@ -46,7 +46,7 @@ class ProductAttributes extends PureComponent {
           <h2 className={style.attributesTitle}>{attr.name.toUpperCase()}:</h2>
           <div className={style.attributesList}>
             {attr.items.map((item) => {
-              item.key = uuidv4();
+              {/* item.key = uuidv4(); */}
 
               return (
                 <div key={item.value} className={style.attributesForm}>
