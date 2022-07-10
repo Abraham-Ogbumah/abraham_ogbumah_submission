@@ -38,7 +38,7 @@ class CardsItem extends PureComponent {
                         state: { from: location}
                     }}
                 >
-                    <img className={style.image} src={item.gallery[0]} alt="name" />
+                    <img className={style.image} src={item.gallery[0]} alt="namtest" />
                     {!item.inStock && <p className={style.imageBlur}>OUT OF STOCK</p>}
 
                     <p className={style.itemName}>{item.name}</p>
